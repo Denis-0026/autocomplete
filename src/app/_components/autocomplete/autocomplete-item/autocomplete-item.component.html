@@ -1,0 +1,13 @@
+<div class="autocomplete-item" *ngIf="company" (click)="selectCompany(company)">
+    <div class="autocomplete-item__logo">
+        <img [src]="company.logo ? company.logo + '?size=' + logoSize : 'assets/img/no-image.png'">
+    </div>
+    <div class="autocomplete-item__info">
+        <div class="autocomplete-item__info_name">
+            {{ company.name }}
+        </div>
+        <div class="autocomplete-item__info_domain">
+            {{ company.domain }}
+        </div>
+    </div>
+</div>

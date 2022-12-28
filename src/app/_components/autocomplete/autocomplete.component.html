@@ -1,0 +1,20 @@
+<div class="autocomplete">
+    <div class="autocomplete__input">
+        <input type="text" (keyup)="onInput($event)" [value]="company && company.name ? company.name : query">
+    </div>
+    <ng-container *ngIf="query">
+        <div class="autocomplete__body">
+            <ng-container *ngIf="companies && companies.length > 0 else notFound">
+                <ng-container *ngFor="let company of companies;">
+                    <app-autocomplete-item [company]="company" (onSelect)="selectCompany($event)"></app-autocomplete-item>
+                </ng-container>
+            </ng-container>
+
+            <ng-template #notFound>
+                <div class="autocomplete__body_not-found">
+                    Компания не найдена
+                </div>
+            </ng-template>
+        </div>
+    </ng-container>
+</div>
